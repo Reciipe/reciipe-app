@@ -1,13 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import WelcomePage from './src/screens/WelcomePage/WelcomePage';
+import * as Font from 'expo-font';
+import { useState } from 'react';
+import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset';
+import SignupPage from './src/screens/SignupPage/SignupPage';
+import SignupNavigator from './src/navigation/SignupNavigator';
+
+
+const LoadAssets = async () => {
+  const imageAssests = Asset.loadAsync([
+    require("./src/screens/WelcomePage/images/welcomeImg.svg"),
+  ]);
+  const getFonts = Font.loadAsync({
+    "Quicksand-Regular": require("./src/assets/fonts/Quicksand-Regular.ttf"),
+    "Quicksand-Bold": require("./src/assets/fonts/Quicksand-Bold.ttf"),
+  });
+
+  return await Promise.all([imageAssests, getFonts]);
+};
 
 export default function App() {
+  // const [assetLoaded, setAssetLoaded] = useState(false);
+  
+  // if(!assetLoaded){
+  //   return (
+  //     <AppLoading 
+  //       startAsync={LoadAssets}
+  //       onFinish={()=> setAssetLoaded(true)}
+  //     />
+  //   );
+  // }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SignupNavigator />
   );
+
 }
 
 const styles = StyleSheet.create({
