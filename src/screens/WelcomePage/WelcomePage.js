@@ -13,7 +13,7 @@ export default function WelcomePage({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.imgContainer}>
-                <WelcomeImg style={styles.welcomeImg} />
+                <WelcomeImg width="150%" style={styles.welcomeImg} />
             </View>
 
             <Text style={styles.welcomeText} >Share your recipes to your audience in one place</Text>
@@ -26,37 +26,33 @@ export default function WelcomePage({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        position: "relative",
+        flex: 1,
         height: "100%",
         width: '100%',
         backgroundColor: "#FFFFFF",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 50,
     },
     imgContainer:{
         marginTop: "15%",
         height: "60%",
         width: "100%",
         display: "flex",
-        justifyContent: "flex-end",
         alignItems: "center",
     },
     welcomeImg: {
-        width: "100%",
-        height: "100%",
-
-        // flexGrow: 1,
-        // flexShrink: 0,
+        flexGrow: 1,
+        flexShrink: 0,
     },
     welcomeText: {
-        position: "absolute",
-        fontSize: 13,
+        fontSize: 17,
+        // fontFamily: "Quicksand-Bold",
         fontWeight: 700,
         textAlign: 'center',
-        top: '72%',
-        width: 200,
-        left: "50%",
-        transform: [
-            {translateX: -100}
-        ],
+        width: 220,
+        marginBottom: 20,
     },
     button: {
         position: "absolute",
