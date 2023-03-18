@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import Button from "../../components/Button";
+import Button from "../../components/ui/Button";
 
 import WelcomeImg from './images/welcomeImg.svg';
 
