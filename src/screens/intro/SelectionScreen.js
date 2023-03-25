@@ -1,21 +1,32 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
-import WelcomeImg from "../../assets/images/SelectionPage.svg";
+import ReciipeLogo from "../../assets/images/RECIIPE-logo.svg";
 
-export default function SelectionScreen() {
+export default function SelectionScreen({navigation}) {
+
+  const goToFoodieSignUp = () => { navigation.navigate("FoodieSignupScreen"); }
+  
+  const goToCreatorSignUp = () => { navigation.navigate("CreatorSignupScreen"); }
+
   return (
     <View style={styles.container}>
+
       <View style={styles.imgContainer}>
-        <WelcomeImg width="150%" style={styles.WelcomeImg} />
+        <ReciipeLogo height="100%" width="200%" style={styles.screenImg} />
       </View>
-      <Text style={{ fontSize: 30, color: "black" }}>Who are You?</Text>
-      <StatusBar style="auto" />
-      <View style={styles.space} />
+
+      <Text style={styles.screenText}>Who are You?</Text>
+
+      {/* <StatusBar style="auto" /> */}
+
+      {/* <View style={styles.space} /> */}
+
       <View style={styles.screenContainer}>
-        <AppButton title="Foodie" size="sm" backgroundColor="#FFFFFF" />
+        <AppButton title="Foodie" size="sm" backgroundColor="#FFFFFF" onPress={goToFoodieSignUp}/>
         <View style={styles.space} />
-        <AppButton title="Creator" size="sm" backgroundColor="black" />
+        <AppButton title="Creator" size="sm" backgroundColor="black" onPress={goToCreatorSignUp}/>
       </View>
+
     </View>
   );
 }
@@ -27,10 +38,23 @@ const AppButton = ({ onPress, title }) => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "FFFFFF",
+    // flex: 1,
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
-    justifyContent: "center",
+    paddingTop: "20%",
+    display: 'flex',
+    flexDirection: 'column',
+    height: "100%",
+  },
+  imgContainer: {
+    marginTop: "15%",
+    height: "50%",
+    width: "100%",
+    alignItems: "center",
+    marginBottom: "-13%",
+  },
+  screenImg: {
+    width: "100%",
   },
 
   //button container properties
@@ -57,5 +81,13 @@ const styles = StyleSheet.create({
     color: "#000000",
     alignSelf: "center",
     lineHeight: 19,
+  },
+
+  screenText: {
+    fontSize: 30, 
+    color: "black",
+    paddingTop: 0,
+    padding: 20,
+    fontFamily: "Quicksand-Bold",
   },
 });

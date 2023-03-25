@@ -20,15 +20,20 @@ import Button from "../../components/common/Button";
   }
 
   function submitHandler(){}
+
+  const goToGuestSignin = () => { }
+
   
-  export default function SignupPage() {
+  export default function FoodieSignupScreen() {
     return (
-      <KeyboardAwareScrollView>
+    //   <KeyboardAwareScrollView>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.container}>
-          <View style={styles.imgContainer}>
-            <SignupImg height="100%" width="100%" style={styles.welcomeImg} />
-          </View>
+            <Text style={styles.guestSignin} onPress={goToGuestSignin}>Skip With Guest Sign In</Text>
+
+            <View style={styles.imgContainer}>
+                <SignupImg height="100%" width="100%" style={styles.welcomeImg} />
+            </View>
   
           <Text style={styles.header}>Create An Account</Text>
   
@@ -65,11 +70,9 @@ import Button from "../../components/common/Button";
                     width: "80%",
                     marginBottom: 5,
                     marginTop: 50,
-              }}/>
-  
-              {/* <TouchableOpacity style={styles.button} onPress={submitHandler}>
-                  <Text style={styles.buttonText}>Sign Up</Text>
-              </TouchableOpacity> */}
+                }}
+                textColor="#FFFFFF"
+              />
   
               <View style={styles.line} >
                   <View style={styles.greyline} />
@@ -88,7 +91,7 @@ import Button from "../../components/common/Button";
           </View>
         </View>
       </TouchableWithoutFeedback>
-      </KeyboardAwareScrollView>
+    //   </KeyboardAwareScrollView>
     );
   }
   
@@ -98,6 +101,8 @@ import Button from "../../components/common/Button";
       flex: 1,
       height: "100%",
       paddingBottom: 30,
+      position: 'relative',
+      paddingTop: "12%",
     },
     imgContainer: {
       width: "100%",
@@ -106,6 +111,7 @@ import Button from "../../components/common/Button";
       flexShrink: 0,
       display: "flex",
       alignItems: "center",
+    //   marginTop: 50m
     },
     welcomeImg: {
       width: "100%",
@@ -216,6 +222,16 @@ import Button from "../../components/common/Button";
   },
   text:{
       fontFamily: "Quicksand-Bold",
-  }
+  },
+  guestSignin: {
+    position: "absolute",
+    right: 5,
+    color: "#AE394D",
+    textDecorationLine: "underline",
+    fontFamily: "Quicksand-Bold",
+    padding: 10,
+    zIndex: 2,
+    top: "4%",
+  },
   });
   

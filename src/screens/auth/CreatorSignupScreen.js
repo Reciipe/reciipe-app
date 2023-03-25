@@ -6,6 +6,7 @@ import {
   Keyboard,
   TouchableOpacity,
   Platform,
+  Alert,
   Dimensions,
 } from "react-native";
 import { useState, useEffect } from "react";
@@ -13,10 +14,25 @@ import SignupImg from "../../assets/images/SignupImg.svg";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import FormInput from "../../components/common/FormInput";
 
-export default function SignupScreen({ navigatoin }) {
+export default function SignupScreen({ navigation }) {
+
+  const [fullName, setFullName] = useState(''); 
+
+  const handleFullNameChange = (text) => { // Check if the user has entered a space. 
+    const spaceIndex = text.indexOf(' '); 
+    if (spaceIndex !== -1) { // Split the full name into first and last name. 
+      const firstName = text.substring(0, spaceIndex); const lastName = text.substring(spaceIndex + 1); // Update the state with the first and last name. 
+      setFullName({ firstName, lastName }); } 
+    else { // Only the first name is entered. 
+      setFullName({ firstName: text, lastName: '' }); 
+    } }; 
+
+    const goToGuestSignin = () => { }
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
+        <Text style={styles.guestSignin} onPress={goToGuestSignin}>Skip With Guest Sign In</Text>
         {/* header image */}
         <View style={styles.imgContainer}>
           <SignupImg height="80%" width="50%" style={styles.welcomeImg} />
@@ -66,7 +82,7 @@ export default function SignupScreen({ navigatoin }) {
             <Text style={styles.signInText}>
               Already have an account?
               <Text style={[styles.signInText, { color: "#AE394D" }]}>
-                {"s"} Sign In
+                {"\n"} Sign In
               </Text>
             </Text>
           </View>
@@ -86,7 +102,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
     flex: 1,
+    paddingTop: 30,
     // paddingBottom: screenHeight,
+    position: 'relative',
   },
   imgContainer: {
     marginTop: "15%",
@@ -207,5 +225,15 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "Quicksand-Bold",
+  },
+  guestSignin: {
+    position: "absolute",
+    right: 5,
+    color: "#AE394D",
+    textDecorationLine: "underline",
+    fontFamily: "Quicksand-Bold",
+    padding: 10,
+    zIndex: 2,
+    top: "4%",
   },
 });
