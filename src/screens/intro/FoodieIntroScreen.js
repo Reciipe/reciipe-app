@@ -19,7 +19,7 @@ export default function FoodieIntroScreen({ navigation }) {
         {""} <Text style={styles.highlight}>renowed</Text> {"\n"} food curators!
       </Text>
 
-      <Button text="Get Started" action={pressHandler} />
+      <Button text="Get Started" action={pressHandler} textColor="#FFF" />
     </View>
   );
 }

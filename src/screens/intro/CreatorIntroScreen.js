@@ -18,7 +18,12 @@ export default function CreatorIntroScreen({ navigation }) {
         Share your recipes to your audience in one place
       </Text>
 
-      <Button text="Get Started" action={pressHandler} />
+      <Button
+        text="Next"
+        action={pressHandler}
+        style={{ backgroundColor: "#FFFFF8" }}
+        textColor="#AE394D"
+      />
     </View>
   );
 }
