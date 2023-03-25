@@ -4,27 +4,29 @@ This is a mobile application built with React Native that allows users to search
 
 ## Folder structure
 
-`reciipe-app/
-├── assets/
-│   ├── fonts/
-│   ├── images/
-│   └── ...
-├── src/
-│   ├── actions/
-│   ├── components/
-│   │   ├── common/
-│   │   ├── recipe/
-│   │   ├── search/
-│   │   └── ...
-│   ├── reducers/
-│   ├── screens/
-│   ├── services/
-│   ├── utils/
-│   ├── App.js
-│   └── index.js
-├── App.js
-├── package.json
-└── README.md`
+```
+    reciipe-app/
+    ├── assets/
+    │ ├── fonts/
+    │ ├── images/
+    │ └── ...
+    ├── src/
+    │ ├── actions/
+    │ ├── components/
+    │ │ ├── common/
+    │ │ ├── recipe/
+    │ │ ├── search/
+    │ │ └── ...
+    │ ├── reducers/
+    │ ├── screens/
+    │ ├── services/
+    │ ├── utils/
+    │ ├── App.js
+    │ └── index.js
+    ├── App.js
+    ├── package.json
+    └── README.md
+```
 
 ## Installation
 
