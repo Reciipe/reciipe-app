@@ -7,10 +7,11 @@ This is a mobile application built with React Native that allows users to search
 ```
     reciipe-app/
     ├── assets/
-    │ ├── fonts/
-    │ ├── images/
-    │ └── ...
     ├── src/
+    | ├── assets/
+    │ | ├── fonts/
+    │ | ├── images/
+    | | └── ...
     │ ├── actions/
     │ ├── components/
     │ │ ├── common/ (button, input, header, icon)
