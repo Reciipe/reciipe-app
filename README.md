@@ -13,16 +13,13 @@ This is a mobile application built with React Native that allows users to search
     ├── src/
     │ ├── actions/
     │ ├── components/
-    │ │ ├── common/
-    │ │ ├── recipe/
-    │ │ ├── search/
+    │ │ ├── common/ (button, input, header, icon)
+    │ │ ├── recipeCard/
+    │ │ ├── IngredientsList/
     │ │ └── ...
-    │ ├── reducers/
+    │ ├── redux/
     │ ├── screens/
-    │ ├── services/
-    │ ├── utils/
-    │ ├── App.js
-    │ └── index.js
+    │ ├── utils/ (helper functions)
     ├── App.js
     ├── package.json
     └── README.md
