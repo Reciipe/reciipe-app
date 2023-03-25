@@ -5,7 +5,7 @@ import WelcomeImg from "../../assets/images/FoodieIntroPage.svg";
 
 export default function FoodieIntroScreen({ navigation }) {
   const pressHandler = () => {
-    navigation.navigate("SignupScreen");
+    navigation.navigate("SelectionScreen");
   };
 
   return (
