@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import Button from "../../components/ui/Button";
+import Button from "../../components/common/Button";
 
 import WelcomeImg from './images/welcomeImg.svg';
 
@@ -7,8 +7,8 @@ export default function WelcomePage({navigation}) {
 
     const pressHandler = () => {
         console.log("kechieeee here");
-        navigation.navigate('FoodieIntroPage');
-        // navigation.push('SignUp');
+        // navigation.navigate('FoodieIntroPage');
+        navigation.push('SignUp');
     }
 
     return (

@@ -23,7 +23,7 @@ export default function SignupPage() {
         <Text style={styles.header}>Create An Account</Text>
 
         {/* debugging purposes, can remove */}
-        <Text style={styles.text}>wow</Text>
+        {/* <Text style={styles.text}>wow</Text> */}
 
         <SignupForm />
       </View>
