@@ -3,9 +3,9 @@ import Button from "../../components/common/Button";
 
 import WelcomeImg from "../../assets/images/welcomeImg.svg";
 
-export default function WelcomeScreen({ navigation }) {
+export default function CreatorIntroScreen({ navigation }) {
   const pressHandler = () => {
-    navigation.push("SignUp");
+    navigation.navigate("FoodieIntroScreen");
   };
 
   return (
