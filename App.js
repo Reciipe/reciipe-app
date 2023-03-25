@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import WelcomePage from "./src/screens/WelcomePage/WelcomePage";
+import WelcomePage from "./src/screens/intro/CreatorIntroScreen";
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
-import SignupPage from "./src/screens/SignupPage/SignupPage";
+import SignupPage from "./src/screens/auth/SignupScreen";
 import SignupNavigator from "./src/navigation/SignupNavigator";
 import { loadFonts } from "./src/assets/fonts/font";
 
