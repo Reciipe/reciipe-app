@@ -4,27 +4,27 @@ This is a mobile application built with React Native that allows users to search
 
 ## Folder structure
 
-reciipe-app/
+`reciipe-app/
 ├── assets/
-│ ├── fonts/
-│ ├── images/
-│ └── ...
+│   ├── fonts/
+│   ├── images/
+│   └── ...
 ├── src/
-│ ├── actions/
-│ ├── components/
-│ │ ├── common/
-│ │ ├── recipe/
-│ │ ├── search/
-│ │ └── ...
-│ ├── reducers/
-│ ├── screens/
-│ ├── services/
-│ ├── utils/
-│ ├── App.js
-│ └── index.js
+│   ├── actions/
+│   ├── components/
+│   │   ├── common/
+│   │   ├── recipe/
+│   │   ├── search/
+│   │   └── ...
+│   ├── reducers/
+│   ├── screens/
+│   ├── services/
+│   ├── utils/
+│   ├── App.js
+│   └── index.js
 ├── App.js
 ├── package.json
-└── README.md
+└── README.md`
 
 ## Installation
 
@@ -44,9 +44,7 @@ To install this application, please follow these steps:
 
 ## Running the app
 
-- `npm i`
-  or
-- `yarn`
+- `npm i` or `yarn` to install dependencies
 - `expo start`
 
 ## Dependencies
