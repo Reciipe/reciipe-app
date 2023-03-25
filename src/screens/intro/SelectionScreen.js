@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
-import WelcomeImg from './Images/SelectionPage.svg';
+import WelcomeImg from '../../assets/images/SelectionPage.svg';
 
 
 
-export default function SelectionPage() {
+export default function SelectionScreen() {
   return (
 
   

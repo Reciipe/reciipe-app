@@ -1,9 +1,9 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import WelcomePage from '../screens/WelcomePage/WelcomePage';
-import SignupPage from '../screens/SignupPage/SignupPage';
-import FoodieIntroPage from '../screens/FoodieIntroPage/FoodieIntroPage';
-import SelectionPage from '../screens/SelectionPage/SelectionPage';
+import WelcomeScreen from '../screens/intro/CreatorIntroScreen';
+import SignupScreen from '../screens/auth/SignupScreen';
+import FoodieIntroScreen from '../screens/intro/FoodieIntroScreen';
+import SelectionScreen from '../screens/intro/SelectionScreen';
 
 
 import { Platform } from 'react-native';
@@ -12,14 +12,14 @@ const IOS_HEADER_HEIGHT = 100;
 
 const screens = {
     Welcome: {
-        screen: WelcomePage,
+        screen: WelcomeScreen,
         navigationOptions: {
             headerShown: false,
             backgroundColor: "#FFFFFF",
         },
     },
     SignUp: {
-        screen: SignupPage,
+        screen: SignupScreen,
         navigationOptions: {
             title: '',
             headerStyle: {
@@ -32,7 +32,7 @@ const screens = {
         },
     }, 
     FoodieIntroPage: {
-        screen: FoodieIntroPage,
+        screen: FoodieIntroScreen,
         navigationOptions: {
             title: '',
             headerStyle: {
@@ -45,7 +45,7 @@ const screens = {
         },
     },
     SelectionPage: {
-        screen: SelectionPage,
+        screen: SelectionScreen,
         navigationOptions: {
             title: '',
             headerStyle: {

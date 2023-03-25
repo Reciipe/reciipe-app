@@ -1,14 +1,13 @@
 import { StyleSheet, View, Text } from "react-native";
 import Button from "../../components/common/Button";
 
-import WelcomeImg from './images/welcomeImg.svg';
+import WelcomeImg from '../../assets/images/FoodieIntroPage.svg';
 
-export default function WelcomePage({navigation}) {
+export default function FoodieIntroPage({navigation}) {
 
     const pressHandler = () => {
-        console.log("kechieeee here");
-        // navigation.navigate('FoodieIntroPage');
-        navigation.push('SignUp');
+        navigation.navigate('SelectionPage');
+        // navigation.push('SelectionPage');
     }
 
     return (
@@ -17,7 +16,8 @@ export default function WelcomePage({navigation}) {
                 <WelcomeImg width="150%" style={styles.welcomeImg} />
             </View>
 
-            <Text style={styles.welcomeText} >Share your recipes to your audience in one place</Text>
+            <Text style={styles.welcomeText} >Elevate your{"\n"} cooking skills by following {"\n"} recipes curated by{""} <Text style={styles.highlight}>renowed</Text> {"\n"} food curators!</Text>
+
 
             <Button text='Get Started' action={pressHandler}/>
         </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 50,
+        gap: 30,
     },
     imgContainer:{
         marginTop: "15%",
@@ -48,18 +48,17 @@ const styles = StyleSheet.create({
         flexShrink: 0,
     },
     welcomeText: {
-        fontSize: 17,
+        fontSize: 20,
         // fontFamily: "Quicksand-Bold",
         fontWeight: 700,
         textAlign: 'center',
-        width: 220,
-        marginBottom: 20,
+        marginBottom: 1,
     },
     button: {
         position: "absolute",
         height: 50,
         width: 250,
-        top: 690,
+        top: 500,
         left: 64,
         backgroundColor: "#AE394D",
         display: "flex",
@@ -67,6 +66,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 11
     },
+    highlight: {
+        color: "#AE394D",
+      },
     buttonText: {
         color: "white",
         fontWeight: 700,
