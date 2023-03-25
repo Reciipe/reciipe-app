@@ -6,87 +6,79 @@ import {
   Keyboard,
   TouchableOpacity,
   Platform,
+  Dimensions,
 } from "react-native";
+import { useState, useEffect } from "react";
 import SignupImg from "../../assets/images/SignupImg.svg";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import FormInput from "../../components/common/FormInput";
 
-// navigation.replace() //goes to a new page without having a back button
-
-function goToSignin() {}
-
-export default function SignupScreen() {
+export default function SignupScreen({ navigatoin }) {
   return (
-    <KeyboardAwareScrollView>
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <View style={styles.container}>
-          <View style={styles.imgContainer}>
-            <SignupImg height="100%" width="100%" style={styles.welcomeImg} />
-          </View>
-
-          <Text style={styles.header}>Create An Account</Text>
-
-          <View style={styles.formContainer}>
-            <FormInput
-              label="Full Name"
-              type="name"
-              textInputOptions={{
-                placeholder: "Full Name",
-                autoCapitalize: "none",
-                autoCorrect: false,
-              }}
-            />
-
-            <FormInput
-              label="Email"
-              type="email"
-              textInputOptions={{
-                placeholder: "Email",
-                keyboardType: "email-address",
-                autoCapitalize: "none",
-                autoCorrect: false,
-              }}
-            />
-
-            <FormInput
-              label="Password"
-              type="password"
-              textInputOptions={{
-                placeholder: "Password",
-                autoCapitalize: "none",
-                autoCorrect: false,
-              }}
-            />
-
-            {/* <TouchableOpacity style={styles.button} onPress={submitHandler}>
-                <Text style={styles.buttonText}>Sign Up</Text>
-            </TouchableOpacity> */}
-
-            <View style={styles.line}>
-              <View style={styles.greyline} />
-              <Text style={styles.linetext}>or</Text>
-              <View style={styles.greyline} />
-            </View>
-
-            <View style={styles.signInTextContainer}>
-              <Text style={styles.signInText}>Already have an account?</Text>
-              <Text
-                style={[styles.signInText, { color: "#AE394D" }]}
-                onPress={goToSignin}
-              >
-                Sign In
-              </Text>
-            </View>
-
-            <TouchableOpacity style={styles.googlePlaceHolder}>
-              <Text style={{ ...styles.buttonText, color: "black" }}>
-                Sign In With Google
-              </Text>
-            </TouchableOpacity>
-          </View>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        {/* header image */}
+        <View style={styles.imgContainer}>
+          <SignupImg height="80%" width="50%" style={styles.welcomeImg} />
         </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAwareScrollView>
+
+        <Text style={styles.header}>Create An Account</Text>
+
+        <View style={styles.formContainer}>
+          <FormInput
+            label="Full Name"
+            type="name"
+            textInputOptions={{
+              placeholder: "Full Name",
+              autoCapitalize: "none",
+              autoCorrect: false,
+            }}
+          />
+
+          <FormInput
+            label="Email"
+            type="email"
+            textInputOptions={{
+              placeholder: "Email",
+              keyboardType: "email-address",
+              autoCapitalize: "none",
+              autoCorrect: false,
+            }}
+          />
+
+          <FormInput
+            label="Password"
+            type="password"
+            textInputOptions={{
+              placeholder: "Password",
+              autoCapitalize: "none",
+              autoCorrect: false,
+            }}
+          />
+
+          <View style={styles.line}>
+            <View style={styles.greyline} />
+            <Text style={styles.linetext}>or</Text>
+            <View style={styles.greyline} />
+          </View>
+
+          <View style={styles.signInTextContainer}>
+            <Text style={styles.signInText}>
+              Already have an account?
+              <Text style={[styles.signInText, { color: "#AE394D" }]}>
+                {"s"} Sign In
+              </Text>
+            </Text>
+          </View>
+
+          <TouchableOpacity style={styles.googlePlaceHolder}>
+            <Text style={{ ...styles.buttonText, color: "black" }}>
+              Sign In With Google
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -94,15 +86,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
     flex: 1,
-    height: "100%",
-    paddingBottom: 30,
+    // paddingBottom: screenHeight,
   },
   imgContainer: {
-    width: "100%",
-    minHeight: 200,
-    flex: 1,
-    flexShrink: 0,
-    display: "flex",
+    marginTop: "15%",
+    height: "30%",
+    marginBottom: "-13%",
+    // for debugging
+    // borderColor: "red",
+    // borderStyle: "solid",
+    // borderWidth: "4",
     alignItems: "center",
   },
   welcomeImg: {
@@ -112,7 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 700,
     textAlign: "center",
-    marginTop: 5,
+    marginTop: "5%",
     marginBottom: 10,
   },
   formContainer: {
