@@ -2,6 +2,32 @@
 
 This is a mobile application built with React Native that allows users to search for recipes based on ingredients they have on hand.
 
+## Folder structure
+
+```
+    reciipe-app/
+    ├── assets/
+    │ ├── fonts/
+    │ ├── images/
+    │ └── ...
+    ├── src/
+    │ ├── actions/
+    │ ├── components/
+    │ │ ├── common/
+    │ │ ├── recipe/
+    │ │ ├── search/
+    │ │ └── ...
+    │ ├── reducers/
+    │ ├── screens/
+    │ ├── services/
+    │ ├── utils/
+    │ ├── App.js
+    │ └── index.js
+    ├── App.js
+    ├── package.json
+    └── README.md
+```
+
 ## Installation
 
 To install this application, please follow these steps:
@@ -17,6 +43,11 @@ To install this application, please follow these steps:
 - View detailed recipe instructions and ingredients
 - Save favorite recipes for easy access later
 - Share recipes with friends and family
+
+## Running the app
+
+- `npm i` or `yarn` to install dependencies
+- `expo start`
 
 ## Dependencies
 
