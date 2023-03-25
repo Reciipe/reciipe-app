@@ -3,9 +3,9 @@ import Button from "../../components/common/Button";
 
 import WelcomeImg from "../../assets/images/welcomeImg.svg";
 
-export default function WelcomeScreen({ navigation }) {
+export default function CreatorIntroScreen({ navigation }) {
   const pressHandler = () => {
-    navigation.push("SignUp");
+    navigation.navigate("FoodieIntroScreen");
   };
 
   return (
@@ -18,7 +18,12 @@ export default function WelcomeScreen({ navigation }) {
         Share your recipes to your audience in one place
       </Text>
 
-      <Button text="Get Started" action={pressHandler} />
+      <Button
+        text="Next"
+        action={pressHandler}
+        style={{ backgroundColor: "#FFFFF8" }}
+        textColor="#AE394D"
+      />
     </View>
   );
 }
