@@ -5,7 +5,7 @@ import * as Font from "expo-font";
 import { useEffect, useState } from "react";
 import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
-import SignupPage from "./src/screens/auth/SignupScreen";
+import SignupPage from "./src/screens/auth/CreatorSignupScreen";
 import SignupNavigator from "./src/navigation/SignupNavigator";
 import { loadFonts } from "./src/assets/fonts/font";
 

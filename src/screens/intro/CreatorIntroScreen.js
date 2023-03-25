@@ -6,7 +6,7 @@ import WelcomeImg from '../../assets/images/welcomeImg.svg';
 export default function WelcomeScreen({navigation}) {
 
     const pressHandler = () => {
-        console.log("kechieeee here");
+        // console.log("kechieeee here");
         // navigation.navigate('FoodieIntroPage');
         navigation.push('SignUp');
     }

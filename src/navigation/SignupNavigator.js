@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import WelcomeScreen from '../screens/intro/CreatorIntroScreen';
-import SignupScreen from '../screens/auth/SignupScreen';
+import CreatorSignupScreen from '../screens/auth/CreatorSignupScreen';
 import FoodieIntroScreen from '../screens/intro/FoodieIntroScreen';
 import SelectionScreen from '../screens/intro/SelectionScreen';
 
@@ -19,7 +19,7 @@ const screens = {
         },
     },
     SignUp: {
-        screen: SignupScreen,
+        screen: CreatorSignupScreen,
         navigationOptions: {
             title: '',
             headerStyle: {
