@@ -11,10 +11,14 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigator from "./src/navigation";
 import store from "./src/redux/store";
-
 export default function App() {
   useEffect(() => {
-    loadFonts();
+    async function loadAssetsAsync() {
+      await loadFonts();
+      const isLoaded = await Font.isLoadedAsync('Quicksand-Bold');
+      console.log(`Is Quicksand-Bold loaded? ${isLoaded}`);
+    }
+    loadAssetsAsync();
   }, []);
 
   return (

@@ -5,6 +5,7 @@ import {
   CreatorIntroScreen,
   FoodieIntroScreen,
   SelectionScreen,
+  LandingScreen,
 } from "../screens/intro/";
 
 
@@ -12,6 +13,7 @@ import {
   CreatorSignupScreen,
   FoodieSignupScreen, 
   ForgotPasswordScreen,
+  LoginScreen,
 } from "../screens/auth/";
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +25,10 @@ export default function RootNavigator() {
     >
       {
         <>
+          <Stack.Screen
+            name="LandingScreen"
+            component={LandingScreen}
+          />
           <Stack.Screen
             name="CreatorIntroScreen"
             component={CreatorIntroScreen}
@@ -43,6 +49,7 @@ export default function RootNavigator() {
           <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
           <Stack.Screen name="CreatorSignupScreen" component={CreatorSignupScreen} />
           <Stack.Screen name="FoodieSignupScreen" component={FoodieSignupScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
         </>
       }
     </Stack.Navigator>

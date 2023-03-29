@@ -29,6 +29,8 @@ export default function SignupScreen({ navigation }) {
 
     const goToGuestSignin = () => { }
 
+    const goToSignin = () => { navigation.navigate("LoginScreen") }
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
@@ -80,9 +82,9 @@ export default function SignupScreen({ navigation }) {
 
           <View style={styles.signInTextContainer}>
             <Text style={styles.signInText}>
-              Already have an account?
-              <Text style={[styles.signInText, { color: "#AE394D" }]}>
-                {"\n"} Sign In
+              Already have an account? {"\n"}
+              <Text style={[styles.signInText, { color: "#AE394D" }]} onPress={goToSignin}>
+                Sign In
               </Text>
             </Text>
           </View>
