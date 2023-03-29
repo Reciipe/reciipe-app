@@ -43,9 +43,9 @@ To install this application, please follow these steps:
 - Share recipes with friends and family
 
 ## Running the app
-
-- `npm i` or `yarn` to install dependencies
-- `expo start`
+- please stick to yarn
+- `yarn` to install dependencies
+- `yarn start`
 
 ## Dependencies
 

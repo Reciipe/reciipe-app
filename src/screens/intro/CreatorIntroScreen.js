@@ -5,6 +5,7 @@ import WelcomeImg from "../../assets/images/welcomeImg.svg";
 
 export default function CreatorIntroScreen({ navigation }) {
   const pressHandler = () => {
+    console.log("weeee");
     navigation.navigate("FoodieIntroScreen");
   };
 

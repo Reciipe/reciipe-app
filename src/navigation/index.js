@@ -6,9 +6,12 @@ import {
   FoodieIntroScreen,
   SelectionScreen,
 } from "../screens/intro/";
+
+
 import { 
   CreatorSignupScreen,
   FoodieSignupScreen, 
+  ForgotPasswordScreen,
 } from "../screens/auth/";
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +27,15 @@ export default function RootNavigator() {
             name="CreatorIntroScreen"
             component={CreatorIntroScreen}
           />
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
+          />
+
+          {/* <Stack.Screen
+            name="OTPPageScreen"
+            component={OTPPageScreen}
+          /> */}
           <Stack.Screen
             name="FoodieIntroScreen"
             component={FoodieIntroScreen}
