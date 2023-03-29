@@ -5,6 +5,7 @@ import {
   CreatorIntroScreen,
   FoodieIntroScreen,
   SelectionScreen,
+  LandingScreen,
 } from "../screens/intro/";
 import { 
   CreatorSignupScreen,
@@ -21,6 +22,10 @@ export default function RootNavigator() {
     >
       {
         <>
+          <Stack.Screen
+            name="LandingScreen"
+            component={LandingScreen}
+          />
           <Stack.Screen
             name="CreatorIntroScreen"
             component={CreatorIntroScreen}
