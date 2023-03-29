@@ -7,9 +7,12 @@ import {
   SelectionScreen,
   LandingScreen,
 } from "../screens/intro/";
+
+
 import { 
   CreatorSignupScreen,
   FoodieSignupScreen, 
+  ForgotPasswordScreen,
   LoginScreen,
 } from "../screens/auth/";
 
@@ -30,6 +33,15 @@ export default function RootNavigator() {
             name="CreatorIntroScreen"
             component={CreatorIntroScreen}
           />
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
+          />
+
+          {/* <Stack.Screen
+            name="OTPPageScreen"
+            component={OTPPageScreen}
+          /> */}
           <Stack.Screen
             name="FoodieIntroScreen"
             component={FoodieIntroScreen}

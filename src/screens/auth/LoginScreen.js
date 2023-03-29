@@ -10,10 +10,12 @@ import FormInput from "../../components/common/FormInput";
 import Button from "../../components/common/Button";  
 
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
     const submitHandler = () => {}
 
-    const goToPasswordReset = () => {}
+    const goToPasswordReset = () => {
+      navigation.navigate("ForgotPasswordScreen");
+    }
 
     return (
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
