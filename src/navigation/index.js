@@ -9,6 +9,7 @@ import {
 import { 
   CreatorSignupScreen,
   FoodieSignupScreen, 
+  LoginScreen,
 } from "../screens/auth/";
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ export default function RootNavigator() {
           <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
           <Stack.Screen name="CreatorSignupScreen" component={CreatorSignupScreen} />
           <Stack.Screen name="FoodieSignupScreen" component={FoodieSignupScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
         </>
       }
     </Stack.Navigator>

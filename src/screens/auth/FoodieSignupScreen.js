@@ -15,16 +15,14 @@ import Button from "../../components/common/Button";
   
   // navigation.replace() //goes to a new page without having a back button
   
-  function goToSignin(){
-  
-  }
+  export default function FoodieSignupScreen({navigation}) {
 
-  function submitHandler(){}
+    function goToSignin(){ navigation.navigate("LoginScreen") }
+    
+    function submitHandler(){}
 
-  const goToGuestSignin = () => { }
+    const goToGuestSignin = () => { }
 
-  
-  export default function FoodieSignupScreen() {
     return (
     //   <KeyboardAwareScrollView>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

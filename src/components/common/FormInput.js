@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 500,
         marginBottom: 9,
+        fontFamily: "Quicksand-Bold",
     },
     input: {
         padding: 6,
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
         borderColor: '#DBD5D5',
         borderWidth: 1,
         height: 42,
+        fontFamily: "Quicksand-Regular",
     },
     invalidLabel: {
         color: "#9b095c",
