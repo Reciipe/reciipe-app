@@ -82,9 +82,9 @@ export default function SignupScreen({ navigation }) {
 
           <View style={styles.signInTextContainer}>
             <Text style={styles.signInText}>
-              Already have an account?
+              Already have an account? {"\n"}
               <Text style={[styles.signInText, { color: "#AE394D" }]} onPress={goToSignin}>
-                {"\n"} Sign In
+                Sign In
               </Text>
             </Text>
           </View>
