@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   button: {
     height: 50,
     width: 250,
+    maxWidth: 350,
     backgroundColor: "#AE394D",
     display: "flex",
     justifyContent: "center",
@@ -33,6 +34,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: 700,
     fontSize: 17,
-    // fontFamily: "Quicksand-Bold",
+    fontFamily: "Quicksand-Bold",
   },
 });
