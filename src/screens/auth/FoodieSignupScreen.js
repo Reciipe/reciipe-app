@@ -5,17 +5,29 @@ import {
     TouchableWithoutFeedback,
     Keyboard,
     TouchableOpacity, 
-    Platform
+    Modal,
+    ActivityIndicator,
   } from "react-native";
-  import SignupImg from "../../assets/images/SignupImg.svg";
-  import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-  import FormInput from "../../components/common/FormInput";
+import { useState } from "react";
+import SignupImg from "../../assets/images/SignupImg.svg";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import FormInput from "../../components/common/FormInput";
 import Button from "../../components/common/Button";
+import DefaultPic from "../../assets/images/signUpProfile.svg";
+import { BlurView } from 'expo-blur';
+
   
   
   // navigation.replace() //goes to a new page without having a back button
   
   export default function FoodieSignupScreen({navigation}) {
+    const [showPopup, setShowPopup] = useState(false);
+  
+    const handleOpenPopup = () => { 
+      setShowPopup(true) 
+    }
+  
+    const handleClosePopup = () => {  setShowPopup(false) }
 
     function goToSignin(){ navigation.navigate("LoginScreen") }
     
@@ -63,7 +75,7 @@ import Button from "../../components/common/Button";
 
               <Button 
                 text="Sign Up" 
-                action={submitHandler} 
+                action={handleOpenPopup} 
                 style={{
                     width: "80%",
                     marginBottom: 5,
@@ -87,6 +99,23 @@ import Button from "../../components/common/Button";
                   <Text style={{...styles.buttonText, color: 'black'}}>Sign In With Google</Text>
               </TouchableOpacity>
           </View>
+          {showPopup && (
+            <BlurView intensity={10} style={StyleSheet.absoluteFill} />    
+            )}
+            <Modal visible={showPopup} transparent={true} animationType="fade">
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                    <DefaultPic />
+                    <Text style={styles.modalTitle}>Signup Successful</Text>
+                    <Text style={styles.modalText}>Your account has been created Please wait a moment we are preparing for you...</Text>
+                    <ActivityIndicator size="large" color="#983C69" style={styles.loading}/>
+
+                    {/* button to close modal (temporary) */}
+                    <Button text="OK" action={handleClosePopup} />
+                    
+                    </View>
+                </View>
+            </Modal>
         </View>
       </TouchableWithoutFeedback>
     //   </KeyboardAwareScrollView>
@@ -124,112 +153,92 @@ import Button from "../../components/common/Button";
     formContainer:{
       alignItems: 'center',
       justifyContent: 'center',
-  },
-  inputContainer: {
-      marginVertical: 8,
-      marginHorizontal: 'auto',
-      
-      width: '80%',
-      display: 'flex',
-      flexDirection: 'column',
-  },
-  label:{
-      fontSize: 15,
-      fontWeight: 500,
-      marginBottom: 9,
-  },
-  input: {
-      padding: 6,
-      borderRadius: 4,
-      fontSize: 18,
-      borderColor: '#DBD5D5',
-      borderWidth: 1,
-      height: 42,
-  },
-  invalidLabel: {
-      color: "#9b095c",
-  },
-  invalidInput: {
-      backgroundColor: "#fcc4e4",
-      borderColor: '#9b095c',
-  },
-  button: {
-      height: 50,
-      width: "80%",
-      maxWidth: 400,
-      backgroundColor: "#AE394D",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 11,
-      marginBottom: 5,
-      marginTop: 50,
-      ...Platform.select({
-          ios: {
-              shadowColor: '#000',
-              shadowOffset: { width: 0, height: 3 },
-              shadowOpacity: 0.2,
-              shadowRadius: 1,
-          },
-          android: {
-              elevation: 4,
-          },
-      }),
-  },
-  buttonText: {
-      color: "white",
-      fontWeight: 700,
-      fontSize: 15,
-  },
-  line:{
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      width: "80%",
-      marginTop: 15,
-  },
-  linetext:{
-      textAlign: 'center',
-      width: 25,
-      color: "#0000008A",
-  },
-  greyline: {
-      flex:1,
-      height: 1,
-      backgroundColor: '#DBD5D5',
-  },
-  googlePlaceHolder:{
-      height: 50,
-      width: "80%",
-      maxWidth: 400,
-      backgroundColor: 'white',
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 11,
-      borderColor: "#0000008A",
-      marginTop: 50,
-      borderWidth: 1,
-  },
-  signInTextContainer: {
-      marginTop: 10,
-  },
-  signInText: {
-      fontSize: 18,
-      textAlign: 'center',
-  },
-  text:{
-      fontFamily: "Quicksand-Bold",
-  },
-  guestSignin: {
-    position: "absolute",
-    right: 5,
-    color: "#AE394D",
-    textDecorationLine: "underline",
-    fontFamily: "Quicksand-Bold",
-    padding: 10,
-    zIndex: 2,
-    top: "4%",
-  },
+    },
+    buttonText: {
+        color: "white",
+        fontWeight: 700,
+        fontSize: 15,
+    },
+    line:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: "80%",
+        marginTop: 15,
+    },
+    linetext:{
+        textAlign: 'center',
+        width: 25,
+        color: "#0000008A",
+    },
+    greyline: {
+        flex:1,
+        height: 1,
+        backgroundColor: '#DBD5D5',
+    },
+    googlePlaceHolder:{
+        height: 50,
+        width: "80%",
+        maxWidth: 400,
+        backgroundColor: 'white',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 11,
+        borderColor: "#0000008A",
+        marginTop: 50,
+        borderWidth: 1,
+    },
+    signInTextContainer: {
+        marginTop: 10,
+    },
+    signInText: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
+    text:{
+        fontFamily: "Quicksand-Bold",
+    },
+    guestSignin: {
+        position: "absolute",
+        right: 5,
+        color: "#AE394D",
+        textDecorationLine: "underline",
+        fontFamily: "Quicksand-Bold",
+        padding: 10,
+        zIndex: 2,
+        top: "4%",
+    },
+    modalContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    modalContent: {
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    modalTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#AE394D',
+        marginTop: '10%',
+        marginBottom: '5%',
+    },
+    modalText: {
+        fontSize: 16,
+        color: '#0000008A',
+        width: 220,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    loading: {
+        marginTop: "5%",
+        marginBottom: "10%",
+    },
   });
   
