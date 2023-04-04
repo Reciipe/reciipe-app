@@ -5,18 +5,27 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
-  Platform,
-  Alert,
-  Dimensions,
+  Modal,
+  ActivityIndicator,
 } from "react-native";
 import { useState, useEffect } from "react";
 import SignupImg from "../../assets/images/SignupImg.svg";
+import DefaultPic from "../../assets/images/signUpProfile.svg";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import FormInput from "../../components/common/FormInput";
+import Button from "../../components/common/Button";
+import { BlurView } from 'expo-blur';
 
 export default function SignupScreen({ navigation }) {
+  const [showPopup, setShowPopup] = useState(false);
 
   const [fullName, setFullName] = useState(''); 
+
+  const handleOpenPopup = () => { 
+    setShowPopup(true) 
+  }
+
+  const handleClosePopup = () => {  setShowPopup(false) }
 
   const handleFullNameChange = (text) => { // Check if the user has entered a space. 
     const spaceIndex = text.indexOf(' '); 
@@ -74,6 +83,17 @@ export default function SignupScreen({ navigation }) {
             }}
           />
 
+          <Button 
+            text="Sign Up" 
+            action={handleOpenPopup} 
+            style={{
+                width: "80%",
+                marginBottom: 5,
+                marginTop: 50,
+            }}
+            textColor="#FFFFFF"
+          />
+
           <View style={styles.line}>
             <View style={styles.greyline} />
             <Text style={styles.linetext}>or</Text>
@@ -95,7 +115,25 @@ export default function SignupScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+        
+        {showPopup && (
+          <BlurView intensity={10} style={StyleSheet.absoluteFill} />    
+        )}
+        <Modal visible={showPopup} transparent={true} animationType="fade">
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <DefaultPic />
+              <Text style={styles.modalTitle}>Signup Successful</Text>
+              <Text style={styles.modalText}>Your account has been created Please wait a moment we are preparing for you...</Text>
+              <ActivityIndicator size="large" color="#983C69" style={styles.loading}/>
+
+              {/* button to close modal (temporary) */}
+              <Button text="OK" action={handleClosePopup} />
+              
+            </View>
+          </View>
+        </Modal>
+      </View>      
     </TouchableWithoutFeedback>
   );
 }
@@ -131,57 +169,6 @@ const styles = StyleSheet.create({
   formContainer: {
     alignItems: "center",
     justifyContent: "center",
-  },
-  inputContainer: {
-    marginVertical: 8,
-    marginHorizontal: "auto",
-
-    width: "80%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  label: {
-    fontSize: 15,
-    fontWeight: 500,
-    marginBottom: 9,
-  },
-  input: {
-    padding: 6,
-    borderRadius: 4,
-    fontSize: 18,
-    borderColor: "#DBD5D5",
-    borderWidth: 1,
-    height: 42,
-  },
-  invalidLabel: {
-    color: "#9b095c",
-  },
-  invalidInput: {
-    backgroundColor: "#fcc4e4",
-    borderColor: "#9b095c",
-  },
-  button: {
-    height: 50,
-    width: "80%",
-    maxWidth: 400,
-    backgroundColor: "#AE394D",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 11,
-    marginBottom: 5,
-    marginTop: 50,
-    ...Platform.select({
-      ios: {
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.2,
-        shadowRadius: 1,
-      },
-      android: {
-        elevation: 4,
-      },
-    }),
   },
   buttonText: {
     color: "white",
@@ -237,5 +224,36 @@ const styles = StyleSheet.create({
     padding: 10,
     zIndex: 2,
     top: "4%",
+  },
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#AE394D',
+    marginTop: '10%',
+    marginBottom: '5%',
+  },
+  modalText: {
+    fontSize: 16,
+    color: '#0000008A',
+    width: 220,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  loading: {
+    marginTop: "5%",
+    marginBottom: "10%",
   },
 });
