@@ -14,6 +14,7 @@ import {
   FoodieSignupScreen, 
   ForgotPasswordScreen,
   LoginScreen,
+  OTPPageScreen,
 } from "../screens/auth/";
 
 const Stack = createNativeStackNavigator();
@@ -38,10 +39,10 @@ export default function RootNavigator() {
             component={ForgotPasswordScreen}
           />
 
-          {/* <Stack.Screen
+           <Stack.Screen
             name="OTPPageScreen"
             component={OTPPageScreen}
-          /> */}
+          /> 
           <Stack.Screen
             name="FoodieIntroScreen"
             component={FoodieIntroScreen}
@@ -50,6 +51,7 @@ export default function RootNavigator() {
           <Stack.Screen name="CreatorSignupScreen" component={CreatorSignupScreen} />
           <Stack.Screen name="FoodieSignupScreen" component={FoodieSignupScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
+
         </>
       }
     </Stack.Navigator>

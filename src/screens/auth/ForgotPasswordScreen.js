@@ -6,8 +6,8 @@ import Button from "../../components/common/Button";
 export default function ForgotPasswordScreen({ navigation }) {
 
   const pressHandler = () => {
-    console.log("Add navigation");
-    // navigation.navigate("OTPPageScreen");
+    //console.log("Add navigation");
+     navigation.navigate("OTPPageScreen");
   };
 
   return (
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginBottom: 1,
     fontWeight: 500,
-    color: "rgba(0, 0, 0, 0.54);",
+    color: "#0000008A",
     lineHeight: 25,
     height: 60,
     width: "90%",
