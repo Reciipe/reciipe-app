@@ -6,6 +6,7 @@ import LandingImg from "../../assets/images/landingImage.svg";
 export default function LandingScreen({ navigation }) {
   const pressHandler = () => {
     navigation.navigate("CreatorIntroScreen");
+    // navigation.navigate("OTPPageScreen");
   };
 
   return (
